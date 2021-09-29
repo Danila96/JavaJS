@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<h1>Answer:</h1>
+	<script type="text/javascript">
+		var n = Number(prompt("Введите количество (n):"));
+		var x = Number(prompt("Введите число между -1 и 1:"));
+		var b = 0;
+		for(var a=1; a<=n; a++){
+			b=b+(((-1)**a)*(x**(a+1))/(a+1));
+		}
+		b=x+b;
+		document.writeln(b);
+	</script>
+	
+</body>
+</html>
