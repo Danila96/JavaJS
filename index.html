@@ -1,31 +1,65 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Лаб2</title>
-	<script type="text/javascript">
-		function func(){
-			var x = Number (document.forms["frm"].elements["varx"].value);
-            var n = Number (document.forms["frm"].elements["varn"].value);
-            var b = 0;
-            for(var a=1; a<=n; a++){
-            	b=b+(((-1)**a)*(x**(a+1))/(a+1));
-            }
-            b=x+b;
-            document.writeln(b);
-        }
-    </script>
+<title>Лаб3</title>
+<meta charset="utf-8">
+<script type="text/javascript">
+//функция для создания массива пользователем
+function formMas(){
+	var n = Number(prompt("Введите количество элементов:"));
+	var nMas = [];
+	for(var i=0; i<n; i++){
+		nMas[i]=Number(prompt("Введите число:"));
+	}
+	return nMas;
+}
+
+var myArray = formMas();
+
+//Сумма элементов массива с нечетными номерами
+var sumOfEl=0;
+for( var i=0; i<myArray.length; i++){
+	if(i%2==1){
+		sumOfEl+=myArray[i];
+	}
+}
+
+//Сумма элементов массива, располоенных между первым и последним отрицательными элементами
+var firstOtrEl;
+var lastOtrEl;
+var sumBetOtr=0;
+for( var i=0; i<myArray.length; i++){
+	if(myArray[i]<0){
+		firstOtrEl=i;
+		break;
+	}
+}
+for( var i=myArray.length; i>0; i--){
+	if(myArray[i]<0){
+		lastOtrEl=i;
+		break;
+	}
+}
+for( var i=firstOtrEl+1; i<lastOtrEl; i++){
+sumBetOtr+=myArray[i];
+}
+
+//Массив, где удалены все элементы, чей модуль не превышает 1
+var l=0;
+while(l<myArray.length){
+	if(Math.abs(myArray[l])<=1){
+		myArray.splice(l,1);
+	}
+	else{
+		l++;
+	}
+}
+
+var str=myArray.join("; ");
+
+document.writeln("Сумма элементов массива с нечетными номерами: "+sumOfEl+"; Сумма элементов массива, располоенных между первым и последним отрицательными элементами: "+sumBetOtr+"; Массив, где удалены все элементы, чей модуль не превышает 1: "+str);
+</script>
 </head>
 <body>
-	<form id="frm">
-		<p>Введите количество (n):</p>
-        <input type="text" name="varx" id="x">
-        <p>Введите число между -1 и 1:</p>
-        <input type="text" name="varn" id="n">
-        <input type="submit" value="OK" onclick="func()">
-    </form>
-<h2>Answer:</h2>
-	
 </body>
 </html>
