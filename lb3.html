@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Лаб3</title>
+    <meta charset="utf-8">
+    <script type="text/javascript">
+        //функция для создания массива пользователем
+        function formMas(){
+            var n = Number(prompt("Введите количество элементов:"));
+            var nMas = [];
+            for(var i=0; i<n; i++){
+                nMas[i]=Number(prompt("Введите число:"));
+            }
+            return nMas;
+        }
+
+        var myArray = formMas();
+
+        //Сумма элементов массива с нечетными номерами
+        var sumOfEl=0;
+        for( var i=0; i<myArray.length; i++){
+            if(i%2==1){
+                sumOfEl+=myArray[i];
+            }
+        }
+
+        //Сумма элементов массива, располоенных между первым и последним отрицательными элементами
+        var firstOtrEl;
+        var lastOtrEl;
+        var sumBetOtr=0;
+        for( var i=0; i<myArray.length; i++){
+            if(myArray[i]<0){
+                firstOtrEl=i;
+                break;
+            }
+        }
+        for( var i=myArray.length; i>0; i--){
+            if(myArray[i]<0){
+                lastOtrEl=i;
+                break;
+            }
+        }
+        for( var i=firstOtrEl+1; i<lastOtrEl; i++){
+            sumBetOtr+=myArray[i];
+        }
+
+        //Массив, где удалены все элементы, чей модуль не превышает 1
+        var l=0;
+        while(l<myArray.length){
+            if(Math.abs(myArray[l])<=1){
+                myArray.splice(l,1);
+            }
+            else{
+                l++;
+            }
+        }
+
+        var str=myArray.join("; ");
+
+        document.writeln("Сумма элементов массива с нечетными номерами: "+sumOfEl+"; Сумма элементов массива, располоенных между первым и последним отрицательными элементами: "+sumBetOtr+"; Массив, где удалены все элементы, чей модуль не превышает 1: "+str);
+    </script>
+</head>
+<body>
+</body>
+</html>
