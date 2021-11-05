@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Лаб6</title>
+<meta charset="utf-8">
+<body>
+    <script type="text/javascript">
+        var x = Number(prompt("Введите координату x:"));
+        var y = Number(prompt("координату y:"));
+        var z = Number(prompt("координату z:"));
+        function Koordinat(x, y, z){
+            this.x=x;
+            this.y=y;
+            this.z=z;
+            this.LengthOfVektor=function(){
+                var len = ((this.x**2)+(this.y**2)+(this.z**2))**(1/2);
+                document.write("Длина вектора = "+len);
+            }
+        }
+        var newVektor = new Koordinat(x, y, z);
+        newVektor.LengthOfVektor();
+    </script>
+</body>
+</html>
