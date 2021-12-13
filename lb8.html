@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Лаб8</title>
+<body style='background-color: white; color: black' class = "myColor">
+<p>Text</p>
+<h2><a href="https://vk.com/" class="myLink">Link here</a></h2>
+    <script type="text/javascript">
+        var a = prompt("Введите цвет фона: ");
+        var b = prompt("Введите цвет текста: ");
+        var c = prompt("Введите ссылку: ");
+        var myBody = document.querySelector("body.myColor");
+        myBody.setAttribute("style", `background-color:${a}`);
+        var root = document.documentElement;
+        root.style.color = b;
+        var ancor = document.querySelector("a.myLink");
+        ancor.setAttribute("href", `${c}`);
+</script>	
+</body>
+</html>
